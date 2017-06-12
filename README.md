@@ -1,2 +1,2 @@
 # TextChangeEvent
-Jquery text change event for texteare
+Jquery text change event for textarea
