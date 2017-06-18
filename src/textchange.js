@@ -2,25 +2,43 @@
 
     $.event.special.textchange = {
 
-        // doing set up job
+        // The setup hook is called the first time an event of a particular type is attached to an element
+        // https://learn.jquery.com/events/event-extensions/#setup-function-data-object-namespaces-eventhandle-function
+        /**
+         * @override
+         * @param data
+         * @param namespaces
+         */
         setup: function (data, namespaces) {
-
             var lastValue = this.contentEditable === "true" ? $(this).html() : $(this).val();
             if (data && data.lastValue) {
                 lastValue = data.lastValue;
             }
 
             $(this).data('lastValue', lastValue);
-            //https://api.jquery.com/keyup/
+
+            // The keyup event is fired when a key is released
+            // https://developer.mozilla.org/en-US/docs/Web/Events/keyup
             $(this).bind('keyup.textchange', $.event.special.textchange.handler);
+            
             $(this).bind('cut.textchange paste.textchange input.textchange', $.event.special.textchange.delayedHandler);
         },
 
-        // https://learn.jquery.com/events/event-extensions/
+        // The teardown hook is called when the final event of a particular type is removed from an element.  
+        // https://learn.jquery.com/events/event-extensions/#teardown-function
+        /**
+         * @override
+         * @param namespaces
+         */
         teardown: function (namespaces) {
             $(this).unbind('.textchange');
         },
 
+        // https://learn.jquery.com/events/event-extensions/#handle-function-event-jquery-event-data-object
+        /**
+         * @override
+         * @param event
+         */
         handler: function (event) {
             $.event.special.textchange.triggerIfChanged($(this));
         },
@@ -39,6 +57,7 @@
                 element.data('lastValue', current);
             }
         }
+
     };
 
     $.event.special.hastext = {

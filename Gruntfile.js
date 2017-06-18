@@ -23,6 +23,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-docco');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['docco']);
 
 };
