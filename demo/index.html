@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="jQuery Text Change Event Demo">
+    <meta name="author" content="Alexis MA">
+    <title>jQuery Text Change Event Demo</title>
+
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container tmaShowCaseBody">
+    <div class="panel panel-primary tmaCase1">
+        <div class="panel-heading">
+            <h3 class="panel-title">Exhibit 1 - switch disability of save button</h3>
+        </div>
+        <div class="panel-body">
+            <p class="tmaDescription"> Save button is enable when there is text in the field, and disable when there is
+                not.</p>
+            <textarea></textarea>
+            <button type="button" class="btn btn-info disabled">Save</button>
+        </div>
+    </div>
+
+    <div class="panel panel-primary tmaCase2">
+        <div class="panel-heading">
+            <h3 class="panel-title">Exhibit 2 - Detecting Text Changes</h3>
+        </div>
+        <div class="panel-body">
+            <p class="tmaDescription"></p>
+            <textarea></textarea>
+            <button type="button" class="btn btn-info">clear</button>
+            <div class="output"></div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary tmaCase3">
+        <div class="panel-heading">
+            <h3 class="panel-title">Exhibit 3 - Twitter Style Validation</h3>
+        </div>
+        <div class="panel-body">
+            <p class="tmaDescription"></p>
+            <textarea></textarea>
+            <button type="button" class="btn btn-info">Send<span class="count"> (140) </span></button>
+        </div>
+    </div>
+
+    <div class="panel panel-primary tmaCase4">
+        <div class="panel-heading">
+            <h3 class="panel-title">Exhibit 4 - AJAX Save</h3>
+        </div>
+        <div class="panel-body">
+            <p class="tmaDescription">For ajax request, I suggest using underscore debounce</p>
+            <textarea></textarea>
+            <div class="output"></div>
+        </div>
+    </div>
+</div>
+
+<script data-main="scripts/main" src="scripts/vendor/requirejs/require.js"></script>
+</body>
+</html>
