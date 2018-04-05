@@ -1,10 +1,13 @@
 require.config({
+    baseUrl: "./../..",
     paths: {
-        "textchange": "../../dest/textchange.min",
-        // "textchange": "../../src/textchange",
-        "jquery": "vendor/jquery/dist/jquery",
-        "underscore": "vendor/underscore-amd/underscore",
-        "backbone": "vendor/backbone-amd/backbone"
+        "models": "scripts/models",
+        "views": "scripts/views",
+
+        "textchange": "src/textchange",
+        "jquery": "bower_components/jquery/dist/jquery",
+        "underscore": "bower_components/underscore/underscore",
+        "backbone": "bower_components/backbone/backbone"
     },
     shim: {
         'textchange': {

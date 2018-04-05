@@ -1,0 +1,23 @@
+@import "../../bower_components/bootstrap/scss/bootstrap";
+
+.tmaShowCaseBody {
+  margin: 50px auto;
+
+  textarea {
+    width: 100%;
+  }
+
+  .output {
+    max-height: 300px;
+    overflow: auto;
+    width: 100%;
+  }
+
+  button {
+    min-width: 100px;
+    margin-top: 8px;
+  }
+
+}
+
+

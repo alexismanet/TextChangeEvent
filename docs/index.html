@@ -2,10 +2,9 @@
 
 <html>
 <head>
-    <title>textchange.js</title>
+    <title>index.js</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport"
-          content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <link rel="stylesheet" media="all" href="docco.css"/>
 </head>
 <body>
@@ -16,7 +15,7 @@
 
         <li id="title">
             <div class="annotation">
-                <h1>textchange.js</h1>
+                <h1>index.js</h1>
             </div>
         </li>
 
@@ -31,8 +30,7 @@
             </div>
 
             <div class="content">
-                <div class='highlight'><pre>(<span class="hljs-function"><span
-                        class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{
+                <div class='highlight'><pre>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{
 
     $.event.special.textchange = {</pre>
                 </div>
@@ -48,8 +46,7 @@
                     <a class="pilcrow" href="#section-2">&#182;</a>
                 </div>
                 <p>The setup hook is called the first time an event of a particular type is attached to an element
-                    <a href="https://learn.jquery.com/events/event-extensions/#setup-function-data-object-namespaces-eventhandle-function">https://learn.jquery.com/events/event-extensions/#setup-function-data-object-namespaces-eventhandle-function</a>
-                </p>
+                    <a href="https://learn.jquery.com/events/event-extensions/#setup-function-data-object-namespaces-eventhandle-function">https://learn.jquery.com/events/event-extensions/#setup-function-data-object-namespaces-eventhandle-function</a></p>
 
             </div>
 
@@ -60,15 +57,12 @@
          * @param namespaces
          */</span>
         setup: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data, namespaces</span>) </span>{
-            <span class="hljs-keyword">var</span> lastValue = <span class="hljs-keyword">this</span>.contentEditable === <span
-                            class="hljs-string">"true"</span> ? $(<span
-                            class="hljs-keyword">this</span>).html() : $(<span class="hljs-keyword">this</span>).val();
+            <span class="hljs-keyword">var</span> lastValue = <span class="hljs-keyword">this</span>.contentEditable === <span class="hljs-string">"true"</span> ? $(<span class="hljs-keyword">this</span>).html() : $(<span class="hljs-keyword">this</span>).val();
             <span class="hljs-keyword">if</span> (data &amp;&amp; data.lastValue) {
                 lastValue = data.lastValue;
             }
 
-            $(<span class="hljs-keyword">this</span>).data(<span
-                            class="hljs-string">'lastValue'</span>, lastValue);</pre>
+            $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'lastValue'</span>, lastValue);</pre>
                 </div>
             </div>
 
@@ -82,14 +76,12 @@
                     <a class="pilcrow" href="#section-3">&#182;</a>
                 </div>
                 <p>The keyup event is fired when a key is released
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup">https://developer.mozilla.org/en-US/docs/Web/Events/keyup</a>
-                </p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/keyup">https://developer.mozilla.org/en-US/docs/Web/Events/keyup</a></p>
 
             </div>
 
             <div class="content">
-                <div class='highlight'><pre>            $(<span class="hljs-keyword">this</span>).bind(<span
-                        class="hljs-string">'keyup.textchange'</span>, $.event.special.textchange.handler);
+                <div class='highlight'><pre>            $(<span class="hljs-keyword">this</span>).bind(<span class="hljs-string">'keyup.textchange'</span>, $.event.special.textchange.handler);
             
             $(<span class="hljs-keyword">this</span>).bind(<span class="hljs-string">'cut.textchange paste.textchange input.textchange'</span>, $.event.special.textchange.delayedHandler);
         },</pre>
@@ -105,9 +97,7 @@
                 <div class="pilwrap ">
                     <a class="pilcrow" href="#section-4">&#182;</a>
                 </div>
-                <p>The teardown hook is called when the final event of a particular type is removed from an element.<br><a
-                        href="https://learn.jquery.com/events/event-extensions/#teardown-function">https://learn.jquery.com/events/event-extensions/#teardown-function</a>
-                </p>
+                <p>The teardown hook is called when the final event of a particular type is removed from an element.<br><a href="https://learn.jquery.com/events/event-extensions/#teardown-function">https://learn.jquery.com/events/event-extensions/#teardown-function</a></p>
 
             </div>
 
@@ -131,9 +121,7 @@
                 <div class="pilwrap ">
                     <a class="pilcrow" href="#section-5">&#182;</a>
                 </div>
-                <p>
-                    <a href="https://learn.jquery.com/events/event-extensions/#handle-function-event-jquery-event-data-object">https://learn.jquery.com/events/event-extensions/#handle-function-event-jquery-event-data-object</a>
-                </p>
+                <p><a href="https://learn.jquery.com/events/event-extensions/#handle-function-event-jquery-event-data-object">https://learn.jquery.com/events/event-extensions/#handle-function-event-jquery-event-data-object</a></p>
 
             </div>
 
@@ -142,24 +130,19 @@
          * @override
          * @param event
          */</span>
-        handler: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params">event</span>) </span>{
+        handler: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
             $.event.special.textchange.triggerIfChanged($(<span class="hljs-keyword">this</span>));
         },
 
-        <span class="hljs-attr">delayedHandler</span>: <span class="hljs-function"><span
-                            class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+        <span class="hljs-attr">delayedHandler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
             <span class="hljs-keyword">var</span> element = $(<span class="hljs-keyword">this</span>);
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params"></span>) </span>{
+            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
                 $.event.special.textchange.triggerIfChanged(element);
             }, <span class="hljs-number">25</span>);
         },
 
-        <span class="hljs-attr">triggerIfChanged</span>: <span class="hljs-function"><span
-                            class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
-            <span class="hljs-keyword">var</span> current = element[<span class="hljs-number">0</span>].contentEditable === <span
-                            class="hljs-string">'true'</span> ? element.html() : element.val();
+        <span class="hljs-attr">triggerIfChanged</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+            <span class="hljs-keyword">var</span> current = element[<span class="hljs-number">0</span>].contentEditable === <span class="hljs-string">'true'</span> ? element.html() : element.val();
             <span class="hljs-keyword">if</span> (current !== element.data(<span class="hljs-string">'lastValue'</span>)) {
                 element.trigger(<span class="hljs-string">'textchange'</span>, [element.data(<span class="hljs-string">'lastValue'</span>)]);
                 element.data(<span class="hljs-string">'lastValue'</span>, current);
@@ -170,21 +153,16 @@
 
     $.event.special.hastext = {
 
-        <span class="hljs-attr">setup</span>: <span class="hljs-function"><span
-                            class="hljs-keyword">function</span> (<span
-                            class="hljs-params">data, namespaces</span>) </span>{
+        <span class="hljs-attr">setup</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data, namespaces</span>) </span>{
             $(<span class="hljs-keyword">this</span>).bind(<span class="hljs-string">'textchange'</span>, $.event.special.hastext.handler);
         },
 
-        <span class="hljs-attr">teardown</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params">namespaces</span>) </span>{
+        <span class="hljs-attr">teardown</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">namespaces</span>) </span>{
             $(<span class="hljs-keyword">this</span>).unbind(<span class="hljs-string">'textchange'</span>, $.event.special.hastext.handler);
         },
 
-        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params">event, lastValue</span>) </span>{
-            <span class="hljs-keyword">if</span> ((lastValue === <span class="hljs-string">''</span>) &amp;&amp; lastValue !== $(<span
-                            class="hljs-keyword">this</span>).val()) {
+        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, lastValue</span>) </span>{
+            <span class="hljs-keyword">if</span> ((lastValue === <span class="hljs-string">''</span>) &amp;&amp; lastValue !== $(<span class="hljs-keyword">this</span>).val()) {
                 $(<span class="hljs-keyword">this</span>).trigger(<span class="hljs-string">'hastext'</span>);
             }
         }
@@ -192,21 +170,16 @@
 
     $.event.special.notext = {
 
-        <span class="hljs-attr">setup</span>: <span class="hljs-function"><span
-                            class="hljs-keyword">function</span> (<span
-                            class="hljs-params">data, namespaces</span>) </span>{
+        <span class="hljs-attr">setup</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data, namespaces</span>) </span>{
             $(<span class="hljs-keyword">this</span>).bind(<span class="hljs-string">'textchange'</span>, $.event.special.notext.handler);
         },
 
-        <span class="hljs-attr">teardown</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params">namespaces</span>) </span>{
+        <span class="hljs-attr">teardown</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">namespaces</span>) </span>{
             $(<span class="hljs-keyword">this</span>).unbind(<span class="hljs-string">'textchange'</span>, $.event.special.notext.handler);
         },
 
-        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
-                            class="hljs-params">event, lastValue</span>) </span>{
-            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).val() === <span
-                            class="hljs-string">''</span> &amp;&amp; $(<span class="hljs-keyword">this</span>).val() !== lastValue) {
+        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, lastValue</span>) </span>{
+            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).val() === <span class="hljs-string">''</span> &amp;&amp; $(<span class="hljs-keyword">this</span>).val() !== lastValue) {
                 $(<span class="hljs-keyword">this</span>).trigger(<span class="hljs-string">'notext'</span>);
             }
         }
