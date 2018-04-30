@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
 const del = require('del');
-const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
@@ -15,9 +14,7 @@ var docco = require("gulp-docco");
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
-
 let dev = true;
-
 
 gulp.task('styles', () => {
     return gulp.src('app/styles/*.scss')
@@ -111,7 +108,7 @@ gulp.task('serve', () => {
             server: {
                 baseDir: ['.tmp', 'app'],
                 routes: {
-                    '/src': 'src',
+                    '/src': '../src',
                     '/bower_components': 'bower_components'
                 }
             }
@@ -129,16 +126,6 @@ gulp.task('serve', () => {
         gulp.watch('bower.json', ['wiredep', 'fonts']);
     });
 });
-
-// gulp.task('serve:dist', ['default'], () => {
-//     browserSync.init({
-//         notify: false,
-//         port: 9000,
-//         server: {
-//             baseDir: ['dist']
-//         }
-//     });
-// });
 
 gulp.task('serve:test', ['scripts'], () => {
     browserSync.init({
@@ -163,16 +150,16 @@ gulp.task('serve:test', ['scripts'], () => {
 gulp.task('wiredep', () => {
     gulp.src('app/styles/*.scss')
         .pipe($.filter(file => file.stat && file.stat.size))
-        .pipe(wiredep({
-            ignorePath: /^(\.\.\/)+/
-        }))
+        // .pipe(wiredep({
+        //     ignorePath: /^(\.\.\/)+/
+        // }))
         .pipe(gulp.dest('app/styles'));
-
-    gulp.src('app/*.html')
-        .pipe(wiredep({
-            ignorePath: /^(\.\.\/)*\.\./
-        }))
-        .pipe(gulp.dest('app'));
+    //
+    // gulp.src('app/*.html')
+    //     .pipe(wiredep({
+    //         ignorePath: /^(\.\.\/)*\.\./
+    //     }))
+    //     .pipe(gulp.dest('app'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
@@ -193,6 +180,7 @@ gulp.task('build-doc', () => {
         .pipe(gulp.dest(dirRoot + '/docs'));
 });
 
+var rename = require("gulp-rename");
 
 gulp.task('compress', function (cb) {
     pump([
@@ -208,6 +196,7 @@ gulp.task('compress', function (cb) {
                     }
                 }
             ),
+            rename({suffix: '.min'}),
             gulp.dest(dirRoot + '/dist')
         ],
         cb

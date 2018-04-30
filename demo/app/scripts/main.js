@@ -4,13 +4,13 @@ require.config({
         "models": "scripts/models",
         "views": "scripts/views",
 
-        "textchange": "src/textchange",
+        "textchange": "src/jquery-textchange",
         "jquery": "bower_components/jquery/dist/jquery",
         "underscore": "bower_components/underscore/underscore",
         "backbone": "bower_components/backbone/backbone"
     },
     shim: {
-        'textchange': {
+        'jquery-textchange': {
             deps: ['jquery']
         }
     }

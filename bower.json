@@ -1,7 +1,9 @@
 {
   "name": "jquery-text-change-event",
   "description": "a jquery library to add text change event for textarea",
-  "main": "index.js",
+  "main": [
+    "./dist/jquery-textchange.min.js"
+  ],
   "authors": [
     "Alexis MA"
   ],
@@ -12,6 +14,9 @@
     "text",
     "change"
   ],
+  "dependencies": {
+    "jquery": ">= 1.8.0"
+  },
   "homepage": "https://github.com/alexismanet/TextChangeEvent",
   "ignore": [
     "**/.*",
